@@ -1,10 +1,9 @@
 # $Id$
 
-%{!?_with_smesetup:%define _with_smesetup %(echo %{?dist} | %{__grep} -c -e nh\$)}
 
 Name:		smeserver-sogo
 Version:	1.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -44,9 +43,9 @@ rm -f %{name}-%{version}-filelist
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%if %{_with_smesetup}
 
 %post
+
 if [ $1 == 1 ]; then #first install
     /etc/e-smith/events/actions/initialize-default-databases &> /dev/null
     /sbin/e-smith/expand-template \
@@ -76,14 +75,14 @@ if [ $1 = 1 ]; then
     /etc/e-smith/events/actions/initialize-default-databases &> /dev/null || :
     /sbin/e-smith/signal-event sogo-modify || :
 fi
-%endif
+
 
 
 %files -f %{name}-%{version}-%{release}-filelist
 
 
 %changelog
-* Thu May 08 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-1
+* Thu May 08 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-2
 - First release For SME Server 9 Thanks for all previous valorous developers
 - removed expand-template for bootstrap-console-save in createlink
 - added an architecture detection for template the file 
