@@ -3,7 +3,7 @@
 %{!?_with_smesetup:%define _with_smesetup %(echo %{?dist} | %{__grep} -c -e nh\$)}
 
 Name:		smeserver-sogo
-Version:	1.0.1
+Version:	1.1
 Release:	1%{?dist}
 Summary:	SME Server SOGo Groupware
 
@@ -15,7 +15,7 @@ BuildArch:	noarch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 BuildRequires:	e-smith-devtools
-Requires:	smeserver-release >= 8
+Requires:	smeserver-release >= 9
 Requires:	e-smith-ldap >= 5.2.0-19
 Requires:	sogo >= 2.1.1b-1, sope49-gdl1-mysql
 Requires:	sogo-tool
@@ -83,6 +83,12 @@ fi
 
 
 %changelog
+* Thu May 08 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-1
+- First release For SME Server 9 Thanks for all previous valorous developers
+- removed expand-template for bootstrap-console-save in createlink
+- added an architecture detection for template the file 
+- /etc/e-smith/templates/etc/httpd/conf/httpd.conf/85SOGoAccess
+
 * Wed Dec 11 2013 Davide Principi <davide.principi@nethesis.it> - 1.0.1-1
 - Fixed sogo.conf syntax. Refs #2339
 

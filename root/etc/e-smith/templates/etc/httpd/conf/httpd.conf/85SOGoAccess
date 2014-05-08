@@ -11,12 +11,32 @@ ProxyPassReverse /SOGo http://127.0.0.1:{$sogod{'TCPPort'}}/SOGo
 	RequestHeader set "x-webobjects-server-url"  "https://%\{REQUEST_HOST\}e/SOGo"
 </Location>
 
-Alias /.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
-Alias /SOGo.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
-Alias /SOGo/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
-AliasMatch /SOGo/so/ControlPanel/Products/(.*)/Resources/(.*) /usr/lib/GNUstep/SOGo/$1.SOGo/Resources/$2
-
+{
+use Config;
+my $arch = $Config{selectminbits};
+ 
+    if ($arch eq "32"){
+        $OUT .= qq(
+        Alias /.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
+        Alias /.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
+        Alias /SOGo.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
+        Alias /SOGo/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
+        AliasMatch /SOGo/so/ControlPanel/Products/(.*)/Resources/(.*) /usr/lib/GNUstep/SOGo/\$1.SOGo/Resources/\$2\
+  
 <Directory "/usr/lib/GNUstep/SOGo/">
+        );} 
+    
+    elsif ($arch eq "64"){
+        $OUT .= qq(
+        Alias /.woa/WebServerResources/ /usr/lib64/GNUstep/SOGo/WebServerResources/
+        Alias /SOGo.woa/WebServerResources/ /usr/lib64/GNUstep/SOGo/WebServerResources/
+        Alias /SOGo/WebServerResources/ /usr/lib64/GNUstep/SOGo/WebServerResources/
+        AliasMatch /SOGo/so/ControlPanel/Products/(.*)/Resources/(.*) /usr/lib64/GNUstep/SOGo/\$1.SOGo/Resources\$2
+    
+<Directory "/usr/lib64/GNUstep/SOGo/">
+        );}
+}
+
     AllowOverride None
     Options +ExecCGI -Includes
     Order allow,deny
