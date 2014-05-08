@@ -26,11 +26,3 @@ CREATE TABLE IF NOT EXISTS `sogo_user_profile` (
   `c_settings` text,
   PRIMARY KEY  (`c_uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `sogo_sessions_folder` (
-  `c_uid` varchar(255) NOT NULL,
-  `c_defaults` text,
-  `c_settings` text,
-  PRIMARY KEY  (`c_uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
