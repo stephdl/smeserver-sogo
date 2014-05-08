@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{_with_smesetup}
 
 %post
-if [ $1 = 1 ]; then #first install
+if [ $1 == 1 ]; then #first install
     /etc/e-smith/events/actions/initialize-default-databases &> /dev/null
     /sbin/e-smith/expand-template \
         /etc/e-smith/sql/init/30sogo_mysql_create_database
