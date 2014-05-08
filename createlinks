@@ -11,7 +11,7 @@ templates2events("/var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql", qw(
 
 templates2events("/etc/e-smith/sql/init/31sogo_upgrade", qw(post-install post-upgrade));
 
-templates2events("/etc/httpd/conf/httpd.conf", qw(sogo-modify bootstrap-console-save));
+templates2events("/etc/httpd/conf/httpd.conf", qw(sogo-modify));
 templates2events("/etc/sogo/sogo.conf", qw(sogo-modify bootstrap-console-save));
 templates2events("/etc/sysconfig/memcached", qw(sogo-modify bootstrap-console-save));
 templates2events("/etc/logrotate.d/sogo", qw(sogo-modify bootstrap-console-save));
