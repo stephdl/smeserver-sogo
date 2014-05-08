@@ -1,0 +1,3 @@
+#! /bin/sh
+
+exec mysql < /var/lib/sogo/smeserver/sogo_mysql_create_database.sql
