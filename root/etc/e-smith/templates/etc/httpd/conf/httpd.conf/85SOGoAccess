@@ -18,7 +18,6 @@ my $arch = $Config{selectminbits};
     if ($arch eq "32"){
         $OUT .= qq(
         Alias /.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
-        Alias /.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
         Alias /SOGo.woa/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
         Alias /SOGo/WebServerResources/ /usr/lib/GNUstep/SOGo/WebServerResources/
         AliasMatch /SOGo/so/ControlPanel/Products/(.*)/Resources/(.*) /usr/lib/GNUstep/SOGo/\$1.SOGo/Resources/\$2\
