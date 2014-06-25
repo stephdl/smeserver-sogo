@@ -82,8 +82,12 @@ fi
 
 
 %changelog
+* Thu Jun 25 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-2
+- Released for sme8 since the smeserver Nethesis repository has closed.
+- Thanks to all previous developers. 
+
 * Thu May 08 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-2
-- First release For SME Server 9 Thanks for all previous valorous developers
+- First release For SME Server 9 Thanks to  all previous valorous developers
 - removed expand-template for bootstrap-console-save in createlink
 - added an architecture detection for template the file 
 - /etc/e-smith/templates/etc/httpd/conf/httpd.conf/85SOGoAccess
