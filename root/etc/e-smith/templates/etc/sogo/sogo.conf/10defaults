@@ -1,66 +1,63 @@
 \{
-        NGUseUTF8AsURLEncoding = YES;
         OCSFolderInfoURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_folder_info";
         OCSSessionsFolderURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_sessions_folder";
+        SOGoProfileURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_user_profile";
+                OCSEMailAlarmsFolderURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_alarms_folder";
+        
         SOGoACLsSendEMailNotifications = {uc($sogod{'ACLsSendEMailNotifications'} || "no")};
         SOGoAppointmentSendEMailNotifications = YES;
         SOGoAppointmentSendEMailReceipts = YES;
+        SOGoEnableEMailAlarms = NO;
         SOGoAuthenticationMethod = LDAP;
-        SOGoDraftsFolderName = {($sogod{'DraftsFolder'} || "Drafts")};
-        SOGoEnablePublicAccess = YES;
         SOGoFoldersSendEMailNotifications = NO;
-        SOGoIMAPServer = localhost;
+
+                SOGoMailSpoolPath = "/var/spool/sogo";
+        SOGoIMAPServer = "imap://localhost:{$imap{'TCPPort'} || '143'}";
         SOGoMailDomain = {$DomainName};
         SOGoMailingMechanism = smtp;
-        SOGoProfileURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_user_profile";
         SOGoSMTPServer = localhost;
+        SOGoMailListViewColumnsOrder = (
+            Flagged, Attachment, Subject, From, Unread, Date, Size
+        );
+        SOGoTrashFolderName = {($sogod{'TrashFolder'} || "Trash")};
+        SOGoDraftsFolderName = {($sogod{'DraftsFolder'} || "Drafts")};
         SOGoSentFolderName = {($sogod{'SentFolder'} || "Sent")};
+
+
+
         SOGoSuperUsernames = (
             {($sogod{'AdminUsers'} || 'admin')}
         );
         SOGoTimeZone = {$TimeZone};
-        SOGoTrashFolderName = Trash;
         WOWorkersCount = {($sogod{'WOWorkersCount'} || "3")};
+
         SOGoMailAuxiliaryUserAccountsEnabled = {uc($sogod{'MailAuxiliaryUserAccountsEnabled'} || "yes")};
-	SOGoMailCustomFromEnabled = YES;
+        SOGoEnablePublicAccess = {uc($sogod{'PublicAccess'} || "no")};
 
-{	
-    # check nethservice version for disable sieve filter    
-    if ($sysconfig{'ReleaseVersion'} =~ m/^8\.[123456789]$/) {
-	my $SievePort= ($sogod{'SievePort'} || "4190");
-	$OUT .= "        SOGoSieveServer = sieve://localhost:" . $SievePort . ";\n";
-	$OUT .= "        SOGoSieveScriptsEnabled = YES;\n";
-	$OUT .= "        SOGoVacationEnabled = YES;\n";
-	$OUT .= "        SOGoForwardEnabled = YES;\n";
-	if ($sysconfig{'ReleaseVersion'} eq '8.1') {
-	    # In NS 8.1 neth-imap uses "." as IMAP separator
-	    $OUT .= "        NGImap4ConnectionStringSeparator = \".\";\n";
-	} else {
-	    # In NS >= 8.2 smeserver-dovecot uses "/" as IMAP separator
-	    $OUT .= "        NGImap4ConnectionStringSeparator = \"/\";\n";       
-	}
+        SOGoMailCustomFromEnabled = YES;
+
+        SOGoMailMessageCheck = "every_10_minutes";
+        SOGoFirstDayOfWeek = "1";
+        SOGoFirstWeekOfYear = "First4DayWeek";
+        SOGoCalendarDefaultReminder = "-PT15M";
+
+
+{   
+    if (($sieve{'status'} || 'disabled') eq 'enabled'){
+        my $sieveport = $sieve{'TCPPort'} || '4190';
+        $OUT .=<<"HERE";
+        SOGoSieveServer = "sieve://localhost:$sieveport";
+        SOGoVacationEnabled = YES;
+        SOGoForwardEnabled = YES;
+        SOGoSieveScriptsEnabled = YES;
+HERE
     }
 }
+
+
+
         SOGoUserSources = (
-{
-    # add auth custom sources
-    use esmith::config;
-    use esmith::db;
 
-    my %db;
-    tie %db, 'esmith::config', '/home/e-smith/db/sogo_sources';
-
-    foreach (sort keys %db)
-    {
-       $OUT.="        {\n";
-       my %props =  db_get_prop(\%db,$_);
-       while ( my ($key, $value) = each(%props) ) {
-           $OUT .= "             $key = $value;\n";
-       }
-       $OUT.="        },\n";
-    }
-
-}
             \{
                 CNFieldName = cn;
                 IDFieldName = uid;
@@ -88,8 +85,13 @@
                 type = ldap;
             \}
         );
+
+        NGUseUTF8AsURLEncoding = YES;
         WOMessageUseUTF8 = YES;
         WOParsersUseUTF8 = YES;
         WOPort = 127.0.0.1:{$sogod{'TCPPort'}};
         WOUseRelativeURLs = YES;
+        
+        SOGoMemcachedHost = "/var/run/sogo/memcached.sock";
+        SOGoCacheCleanupInterval = 1800;
 \}

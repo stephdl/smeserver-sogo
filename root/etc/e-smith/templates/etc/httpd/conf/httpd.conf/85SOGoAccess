@@ -1,13 +1,39 @@
 # SOGo Groupware
+{
+    $sogoStatus = $sogod{'status'} || "disabled";
+    $webmailStatus = $imp{'status'} || "disabled";
+    $activeSync = $sogod{'ActiveSync'} || 'disabled';
+    $OUT = "";
+}
+
+
+
 SetEnvIf Host (.*) REQUEST_HOST=$1
 ProxyPass /SOGo http://127.0.0.1:{$sogod{'TCPPort'}}/SOGo
 ProxyPassReverse /SOGo http://127.0.0.1:{$sogod{'TCPPort'}}/SOGo
+
+# iOS auto discovery
+RedirectMatch ^/principals/users/(.*)$ /SOGo/dav/$1
+RedirectMatch ^/principals/$ /SOGo/dav/
+RedirectMatch ^/.well-known/(caldav|carddav)$ /SOGo/dav/
+
+{
+if ($activeSync =~ m/^enabled|on|1|yes$/i){
+    $OUT .=<<"HERE";
+ProxyPass /Microsoft-Server-ActiveSync http://127.0.0.1:$sogod{'TCPPort'}/SOGo/Microsoft-Server-ActiveSync retry=60 connectiontimeout=5 timeout=360
+HERE
+}
+else {
+    $OUT .= "# ActiveSync is disabled\n";
+}
+}
 
 <Location /SOGo>
 	order deny,allow
 	deny from all
 	allow from all
 	SSLRequireSSL on
+    AddDefaultCharset UTF-8
 	RequestHeader set "x-webobjects-server-url"  "https://%\{REQUEST_HOST\}e/SOGo"
 </Location>
 

@@ -1,0 +1,42 @@
+{
+
+my $sogoPort = $sogod{'TCPPort'} || "20000";
+my $applePort = ${'apple-carddav'}{'TCPPort'} || "8843";
+my $sogoStatus = $sogod{'status'} || "enabled";
+my $appleStatus = ${'apple-carddav'}{'status'} || "enabled";
+
+if (($sogoStatus eq 'enabled') && ($appleStatus eq 'enabled')){
+    $OUT .=<<"EOF";
+
+<VirtualHost 0.0.0.0:$applePort>
+    ServerName $SystemName.$DomainName
+    SSLEngine On
+    ProxyRequests Off
+    SetEnv proxy-nokeepalive 1
+    ProxyPreserveHost On
+    ProxyPassInterpolateEnv On
+    RewriteEngine On
+    RedirectMatch ^/principals/users/(.*)\$ /\$1
+    RedirectMatch ^/principals/\$ /
+    RedirectMatch ^/.well-known/(caldav|carddav)\$ /
+    RewriteRule /SOGo/dav(.*) /\$1 [L,R]
+    ProxyPass / http://127.0.0.1:$sogoPort/SOGo/dav/ interpolate
+
+    <Proxy http://127.0.0.1:$sogoPort>
+      RequestHeader set "x-webobjects-server-port" "$applePort"
+      RequestHeader set "x-webobjects-server-name" "$SystemName.$DomainName:$applePort"
+      RequestHeader set "x-webobjects-server-url" "https://$SystemName.$DomainName:$applePort"
+      RequestHeader set "x-webobjects-server-protocol" "HTTP/1.0"
+      RequestHeader set "x-webobjects-remote-host" "127.0.0.1"
+      AddDefaultCharset UTF-8
+      Order allow,deny
+      Allow from all
+  </Proxy>
+</VirtualHost>
+
+EOF
+}
+else{
+    $OUT .= "";
+}
+}

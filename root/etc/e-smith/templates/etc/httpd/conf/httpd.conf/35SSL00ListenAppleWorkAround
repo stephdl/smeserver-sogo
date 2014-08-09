@@ -1,0 +1,15 @@
+{
+
+my $applePort = ${'apple-carddav'}{'TCPPort'} || "8843";
+my $sogoStatus = $sogod{'status'} || "enabled";
+my $appleStatus = ${'apple-carddav'}{'status'} || "enabled";
+
+if (($sogoStatus eq 'enabled') && ($appleStatus eq 'enabled')){
+    $OUT .=<<"EOF";
+
+Listen 0.0.0.0:$applePort
+
+EOF
+}
+
+}

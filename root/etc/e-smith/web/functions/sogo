@@ -1,0 +1,69 @@
+#!/usr/bin/perl -wT
+
+# vim: ft=xml ts=4 sw=4 et:
+#----------------------------------------------------------------------
+# heading     : Collaboration
+# description : Groupware
+# navigation  : 2000 3000
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+# copyright (C) 2011 Firewall-Services
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+# 
+#----------------------------------------------------------------------
+
+use strict;
+use esmith::FormMagick::Panel::sogo;
+
+my $fm = esmith::FormMagick::Panel::sogo->new();
+
+$fm->display();
+
+__DATA__
+<form title="FORM_TITLE" header="/etc/e-smith/web/common/head.tmpl" footer="/etc/e-smith/web/common/foot.tmpl">
+    <page name="First" pre-event="print_status_message()" post-event="apply()">
+        <field type="select" id="status" options="'enabled' =>
+            'ENABLED', 'disabled' => 'DISABLED'"
+            value="get_prop('status')">
+            <description>STATUS_DESC</description>
+            <label>STATUS</label>
+        </field>
+        <field type="select" id="aclSendMail" options="'yes' =>
+            'YES', 'no' => 'NO'"
+            value="get_prop('ACLsSendEMailNotifications')">
+            <description>SEND_ACL_MAIL_DESC</description>
+            <label>SEND_ACL_MAIL</label>
+        </field>
+        <field type="select" id="auxAccounts" options="'yes' =>
+            'YES', 'no' => 'NO'"
+            value="get_prop('AuxiliaryUserAccounts')">
+            <description>AUX_ACCOUNTS_DESC</description>
+            <label>AUX_ACCOUNTS</label>
+        </field>
+        <field type="select" id="publicAccess" options="'yes' =>
+            'YES', 'no' => 'NO'"
+            value="get_prop('PublicAccess')">
+            <description>PUBLIC_ACCESS_DESC</description>
+            <label>PUBLIC_ACCESS</label>
+        </field>
+        <field type="literal" id="allowed_groups_desc"
+            value="">
+            <description>ALLOWED_GROUPS_DESC</description>
+        </field>
+        <subroutine src="print_allowed_groups()" />
+        <subroutine src="print_button('SAVE')" />
+    </page>
+</form>
