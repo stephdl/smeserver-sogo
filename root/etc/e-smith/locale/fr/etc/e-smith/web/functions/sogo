@@ -1,0 +1,54 @@
+<lexicon lang="fr">
+    <entry>
+        <base>Groupware</base>
+        <trans>Collecticiel</trans>
+    </entry>
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Configuration du collecticiel SOGo</trans>
+    </entry>
+    <entry>
+        <base>STATUS_DESC</base>
+        <trans>Vous pouvez choisir de désactiver entièrement le service</trans>
+    </entry>
+    <entry>
+        <base>STATUS</base>
+        <trans>État</trans>
+    </entry>
+    <entry>
+        <base>SEND_ACL_MAIL_DESC</base>
+        <trans>Lorsqu'un utilisateur donne des droits (sur un agenda ou carnet d'adresse), SOGo peut prévenir automatiquement les personnes concernées que de nouvelles données sont accessibles, en leur envoyant un mail. Voulez-vous activer cette fonction ?</trans>
+    </entry>
+    <entry>
+        <base>SEND_ACL_MAIL</base>
+        <trans>Notification des changements de droit d'accès</trans>
+    </entry>
+    <entry>
+        <base>AUX_ACCOUNTS_DESC</base>
+        <trans>Si cette fonction est activée, les utilisateurs pourront s'abonner à des comptes IMAP externes. Ils pourront ainsi gérer tous leurs comptes emails depuis l'interface web. Souhaitez-vous activer cette fonction ?</trans>
+    </entry>
+    <entry>
+        <base>AUX_ACCOUNTS</base>
+        <trans>Comptes externes</trans>
+    </entry>
+    <entry>
+        <base>PUBLIC_ACCESS_DESC</base>
+        <trans>Si cette fonction est activée, les utilisateurs pourront partager certaines ressources publiquement (sans aucune authentification). Souhaitez-vous activer cette fonction ?</trans>
+    </entry>
+    <entry>
+        <base>PUBLIC_ACCESS</base>
+        <trans>Accès public</trans>
+    </entry>
+    <entry>
+        <base>ALLOWED_GROUPS_DESC</base>
+        <trans>Vous pouvez restreindre l'accès à SOGo à une liste de groupes. Si au moins un groupe est coché, seuls les membres du/des groupe(s) sélectionnés pourront utiliser SOGo. Si aucun groupe n'est coché, alors tous les utilisateurs pourront l'utiliser</trans>
+    </entry>
+    <entry>
+        <base>ALLOWED_GROUPS</base>
+        <trans>Groupes autorisés</trans>
+    </entry>
+    <entry>
+        <base>ALLOWED_OR_NOT</base>
+        <trans>Autorisé ?</trans>
+    </entry>
+</lexicon>

@@ -2,7 +2,7 @@
 
 use esmith::Build::CreateLinks qw(:all);
 
-service_link_enhanced("memcached-sogo", "S55", "7");
+service_link_enhanced("memcached", "S55", "7");
 service_link_enhanced("sogod", "S85", "7");
 
 templates2events("/etc/e-smith/sql/init/30sogo_mysql_create_database", qw(post-install bootstrap-console-save));
@@ -32,6 +32,6 @@ for my $event (qw(pre-backup))
 }
 
 panel_link("sogo", "manager");
-safe_touch("root/var/service/memcached-sogo/down");
-safe_symlink("../daemontools" , 'root/etc/rc.d/init.d/supervise/memcached-sogo');
-safe_symlink("/var/service/memcached-sogo" , 'root/service/memcached-sogo');
+safe_touch("root/var/service/memcached/down");
+safe_symlink("../daemontools" , 'root/etc/rc.d/init.d/memcached');
+safe_symlink("/var/service/memcached" , 'root/service/memcached');
