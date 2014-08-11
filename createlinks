@@ -11,19 +11,19 @@ templates2events("/var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql", qw(
 
 templates2events("/etc/e-smith/sql/init/31sogo_upgrade", qw(post-install post-upgrade));
 
-templates2events("/etc/httpd/conf/httpd.conf", qw( sogo-modify));
-templates2events("/etc/sogo/sogo.conf", qw( sogo-modify bootstrap-console-save));
-templates2events("/etc/sysconfig/memcached", qw( sogo-modify bootstrap-console-save));
-templates2events("/etc/logrotate.d/sogo", qw( sogo-modify bootstrap-console-save));
-templates2events("/etc/sysconfig/sogo", qw( sogo-modify bootstrap-console-save));
-templates2events("/etc/rc.d/init.d/masq",qw( sogo-modify));
-templates2events("/etc/cron.d/sogo",qw( sogo-modify));
-templates2events("/etc/dovecot/master.users",qw( sogo-modify));
+templates2events("/etc/httpd/conf/httpd.conf", qw( email-update sogo-modify));
+templates2events("/etc/sogo/sogo.conf", qw( email-update sogo-modify bootstrap-console-save));
+templates2events("/etc/sysconfig/memcached", qw( email-update sogo-modify bootstrap-console-save));
+templates2events("/etc/logrotate.d/sogo", qw( email-update sogo-modify bootstrap-console-save));
+templates2events("/etc/sysconfig/sogo", qw( email-update sogo-modify bootstrap-console-save));
+templates2events("/etc/rc.d/init.d/masq",qw( email-update sogo-modify));
+templates2events("/etc/cron.d/sogo",qw( email-update sogo-modify));
+templates2events("/etc/dovecot/master.users",qw( email-update sogo-modify));
 
 safe_symlink("sigusr1", "root/etc/e-smith/events/sogo-modify/services2adjust/httpd-e-smith");
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/sogod");
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/dovecot");
-safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/memcached-sogo");
+safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/memcached");
 safe_symlink("adjust", "root/etc/e-smith/events/sogo-modify/services2adjust/masq");
 
 for my $event (qw(pre-backup))
@@ -32,6 +32,3 @@ for my $event (qw(pre-backup))
 }
 
 panel_link("sogo", "manager");
-safe_touch("root/var/service/memcached/down");
-safe_symlink("../daemontools" , 'root/etc/rc.d/init.d/memcached');
-safe_symlink("/var/service/memcached" , 'root/service/memcached');

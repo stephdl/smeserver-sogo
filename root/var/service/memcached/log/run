@@ -1,7 +1,0 @@
-#!/bin/sh
-
-exec                                    \
-    /usr/local/bin/setuidgid sogo       \
-    /usr/local/bin/multilog t s5000000  \
-    /var/log/memcached
-
