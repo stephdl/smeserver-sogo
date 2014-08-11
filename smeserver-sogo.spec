@@ -2,8 +2,8 @@
 
 
 Name:		smeserver-sogo
-Version:	1.1
-Release:	2%{?dist}
+Version:	1.3
+Release:	1%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
