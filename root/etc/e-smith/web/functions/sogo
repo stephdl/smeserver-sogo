@@ -59,7 +59,13 @@ __DATA__
             <description>PUBLIC_ACCESS_DESC</description>
             <label>PUBLIC_ACCESS</label>
         </field>
-
+        <field type="select" id="activeSync" value="disabled" options="'enabled' =>
+            'ENABLED', 'disabled' => 'DISABLED'"
+            value="get_prop('ActiveSync')">
+            <description>ACTIVE_SYNC_ACCESS_DESC</description>
+            <label>ACTIVE_SYNC_ACCESS</label>
+        </field>
+        
         <subroutine src="print_button('SAVE')" />
     </page>
 </form>

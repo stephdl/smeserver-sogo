@@ -61,7 +61,8 @@ sub apply {
     $configdb->set_prop('sogod', 'ACLsSendEMailNotifications', $q->param("aclSendMail"));
     $configdb->set_prop('sogod', 'MailAuxiliaryUserAccountsEnabled', $q->param("auxAccounts"));
     $configdb->set_prop('sogod', 'PublicAccess', $q->param("publicAccess"));
-
+    $configdb->set_prop('sogod', 'ActiveSync', $q->param("activeSync"));
+    
     unless ( system ("/sbin/e-smith/signal-event", "sogo-modify") == 0 ){
         return $self->error('ERROR_OCCURED', 'FIRST');;
     }

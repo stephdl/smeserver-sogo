@@ -39,5 +39,13 @@
         <base>PUBLIC_ACCESS</base>
         <trans>Public access</trans>
     </entry>
-
+   <entry>
+        <base>ACTIVE_SYNC_ACCESS_DESC</base>
+        <trans>
+If this feature is enabled, users can use the active-sync service. Would you like to enable this feature?</trans>
+    </entry>
+    <entry>
+        <base>ACTIVE_SYNC_ACCESS</base>
+        <trans>Active Sync</trans>
+    </entry>
 </lexicon>
