@@ -7,7 +7,7 @@
         SOGoACLsSendEMailNotifications = {uc($sogod{'ACLsSendEMailNotifications'} || "no")};
         SOGoAppointmentSendEMailNotifications = YES;
         SOGoAppointmentSendEMailReceipts = YES;
-        SOGoEnableEMailAlarms = NO;
+        SOGoEnableEMailAlarms = {($sogod{'EnableEMailAlarms'} || "NO")};
         SOGoAuthenticationMethod = LDAP;
         SOGoFoldersSendEMailNotifications = NO;
 

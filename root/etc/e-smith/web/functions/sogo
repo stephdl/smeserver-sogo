@@ -47,6 +47,13 @@ __DATA__
             <description>SEND_ACL_MAIL_DESC</description>
             <label>SEND_ACL_MAIL</label>
         </field>
+        <field type="select" id="enableEMailAlarms" options="'yes' =>
+            'YES', 'no' => 'NO'"
+            value="get_prop('EnableEMailAlarms')">
+            <description>SEND_APPOINTEMENT_EMAIL_ALARM_DESC</description>
+            <label>SEND_EMAIL_ALARM</label>
+        </field>
+        
         <field type="select" id="auxAccounts" options="'yes' =>
             'YES', 'no' => 'NO'"
             value="get_prop('MailAuxiliaryUserAccountsEnabled')">

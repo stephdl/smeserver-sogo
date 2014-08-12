@@ -47,4 +47,14 @@
         <base>ACTIVE_SYNC_ACCESS</base>
         <trans>Active Sync</trans>
     </entry>
+    
+       <entry>
+        <base>SEND_APPOINTEMENT_EMAIL_ALARM_DESC</base>
+        <trans>If this feature is enabled, users can receive alarms via email before their appointments noted in the agenda. Would you like to activate this feature ?</trans>
+    </entry>
+    <entry>
+        <base>SEND_EMAIL_ALARM</base>
+        <trans>Email alerts before appointment</trans>
+    </entry>    
+
 </lexicon>

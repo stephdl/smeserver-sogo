@@ -62,6 +62,7 @@ sub apply {
     $configdb->set_prop('sogod', 'MailAuxiliaryUserAccountsEnabled', $q->param("auxAccounts"));
     $configdb->set_prop('sogod', 'PublicAccess', $q->param("publicAccess"));
     $configdb->set_prop('sogod', 'ActiveSync', $q->param("activeSync"));
+    $configdb->set_prop('sogod', 'EnableEMailAlarms', $q->param("enableEMailAlarms"));
     
     unless ( system ("/sbin/e-smith/signal-event", "sogo-modify") == 0 ){
         return $self->error('ERROR_OCCURED', 'FIRST');;
