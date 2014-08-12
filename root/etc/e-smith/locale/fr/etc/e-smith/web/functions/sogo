@@ -1,11 +1,11 @@
 <lexicon lang="fr">
     <entry>
         <base>Groupware</base>
-        <trans>Collecticiel</trans>
+        <trans>Sogo Groupware</trans>
     </entry>
     <entry>
         <base>FORM_TITLE</base>
-        <trans>Configuration du collecticiel SOGo</trans>
+        <trans>Configuration du Groupware SOGo</trans>
     </entry>
     <entry>
         <base>STATUS_DESC</base>
@@ -39,16 +39,5 @@
         <base>PUBLIC_ACCESS</base>
         <trans>Accès public</trans>
     </entry>
-    <entry>
-        <base>ALLOWED_GROUPS_DESC</base>
-        <trans>Vous pouvez restreindre l'accès à SOGo à une liste de groupes. Si au moins un groupe est coché, seuls les membres du/des groupe(s) sélectionnés pourront utiliser SOGo. Si aucun groupe n'est coché, alors tous les utilisateurs pourront l'utiliser</trans>
-    </entry>
-    <entry>
-        <base>ALLOWED_GROUPS</base>
-        <trans>Groupes autorisés</trans>
-    </entry>
-    <entry>
-        <base>ALLOWED_OR_NOT</base>
-        <trans>Autorisé ?</trans>
-    </entry>
+
 </lexicon>

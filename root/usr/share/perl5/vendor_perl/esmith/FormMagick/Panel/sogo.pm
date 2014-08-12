@@ -33,7 +33,6 @@ our @ISA = qw(esmith::FormMagick Exporter);
 
 our @EXPORT = qw(
     get_prop
-    print_allowed_groups
     apply
 );
 
@@ -54,64 +53,16 @@ sub get_prop{
     return $configdb->get_prop("sogod", $prop) || $default;
 }
 
-sub print_allowed_groups {
-    my ($self) = @_;
-    my $q = $self->{cgi};
-
-    my @allowedGroups = split(/[,;]/, (get_prop($self, 'AllowedGroups', '')));
-
-    if (my @groups = $accountdb->groups()) {
-
-        print "<tr><td class=\"sme-noborders-label\">",
-        $self->localise('ALLOWED_GROUPS'),
-        "</td><td>\n";
-
-        print $q->start_table({-class => "sme-border"}),"\n";
-        print $q->Tr(
-            esmith::cgi::genSmallCell($q, $self->localise('ALLOWED_OR_NOT'),"header"),
-            esmith::cgi::genSmallCell($q, $self->localise('GROUP'),"header"),
-            esmith::cgi::genSmallCell($q, $self->localise('DESCRIPTION'),"header")
-        );
-
-        foreach my $g (@groups) {
-            my $groupname = $g->key();
-            my $checked;
-            if (grep { $groupname eq $_ } @allowedGroups) {
-                $checked = 'checked';
-            } else {
-                $checked = '';
-            }
-
-            print $q->Tr(
-                $q->td(
-                    "<input type=\"checkbox\""
-                    . " name=\"allowedGroups\""
-                    . " $checked value=\"$groupname\">"
-                ),
-                esmith::cgi::genSmallCell($q, $groupname,"normal"),
-                esmith::cgi::genSmallCell( $q, $accountdb->get($groupname)->prop("Description"),"normal")
-            );
-        }
-
-        print "</table></td></tr>\n";
-
-    }
-
-    return undef;
-
-}
-
 sub apply {
     my ($self) = @_;
     my $q = $self->{cgi};
 
     $configdb->set_prop('sogod', 'status', $q->param("status"));
     $configdb->set_prop('sogod', 'ACLsSendEMailNotifications', $q->param("aclSendMail"));
-    $configdb->set_prop('sogod', 'AuxiliaryUserAccounts', $q->param("auxAccounts"));
+    $configdb->set_prop('sogod', 'MailAuxiliaryUserAccountsEnabled', $q->param("auxAccounts"));
     $configdb->set_prop('sogod', 'PublicAccess', $q->param("publicAccess"));
-    $configdb->set_prop('sogod', 'AllowedGroups', join(',', $q->param("allowedGroups")));
 
-    unless ( system ("/sbin/e-smith/signal-event", "email-update") == 0 ){
+    unless ( system ("/sbin/e-smith/signal-event", "sogo-modify") == 0 ){
         return $self->error('ERROR_OCCURED', 'FIRST');;
     }
 

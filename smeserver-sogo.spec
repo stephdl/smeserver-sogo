@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -15,10 +15,14 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 BuildRequires:	e-smith-devtools
 Requires:	smeserver-release >= 9
-Requires:	e-smith-ldap >= 5.2.0-19
-Requires:	sogo >= 2.1.1b-1, sope49-gdl1-mysql
+Requires:	e-smith-ldap
+Requires:	sogo >= 2.2.0
 Requires:	sogo-tool
 Requires:	memcached
+Requires:	sogo-activesync
+Requires: 	sope49-gdl1-mysql
+Requires: 	sogo-ealarms-notify
+Requires: 	python-memcached
 
 %description
 SME Server module for SOGo groupware.

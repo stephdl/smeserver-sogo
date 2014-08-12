@@ -49,7 +49,7 @@ __DATA__
         </field>
         <field type="select" id="auxAccounts" options="'yes' =>
             'YES', 'no' => 'NO'"
-            value="get_prop('AuxiliaryUserAccounts')">
+            value="get_prop('MailAuxiliaryUserAccountsEnabled')">
             <description>AUX_ACCOUNTS_DESC</description>
             <label>AUX_ACCOUNTS</label>
         </field>
@@ -59,11 +59,7 @@ __DATA__
             <description>PUBLIC_ACCESS_DESC</description>
             <label>PUBLIC_ACCESS</label>
         </field>
-        <field type="literal" id="allowed_groups_desc"
-            value="">
-            <description>ALLOWED_GROUPS_DESC</description>
-        </field>
-        <subroutine src="print_allowed_groups()" />
+
         <subroutine src="print_button('SAVE')" />
     </page>
 </form>

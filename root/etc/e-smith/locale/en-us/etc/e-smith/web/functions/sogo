@@ -1,0 +1,43 @@
+<lexicon lang="en-us">
+    <entry>
+        <base>Groupware</base>
+        <trans>Sogo Groupware</trans>
+    </entry>
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Settings of SOGo</trans>
+    </entry>
+    <entry>
+        <base>STATUS_DESC</base>
+        <trans>You can desactivate the service</trans>
+    </entry>
+    <entry>
+        <base>STATUS</base>
+        <trans>Status</trans>
+    </entry>
+    <entry>
+        <base>SEND_ACL_MAIL_DESC</base>
+        <trans>When a user gives rights (on a calendar or address book), SOGo can automatically prevent those concerned that new data are available, by sending them an email. Do you want to enable this feature?</trans>
+    </entry>
+    <entry>
+        <base>SEND_ACL_MAIL</base>
+        <trans>Notification of changes in access rights</trans>
+    </entry>
+    <entry>
+        <base>AUX_ACCOUNTS_DESC</base>
+        <trans>If this feature is enabled, users can subscribe to external IMAP accounts. They will be able to manage all their email accounts from the web interface. Would you like to enable this feature?</trans>
+    </entry>
+    <entry>
+        <base>AUX_ACCOUNTS</base>
+        <trans>External Accounts</trans>
+    </entry>
+    <entry>
+        <base>PUBLIC_ACCESS_DESC</base>
+        <trans>If this feature is enabled, users can publicly share some resources (no authentication). Would you like to enable this feature?</trans>
+    </entry>
+    <entry>
+        <base>PUBLIC_ACCESS</base>
+        <trans>Public access</trans>
+    </entry>
+
+</lexicon>
