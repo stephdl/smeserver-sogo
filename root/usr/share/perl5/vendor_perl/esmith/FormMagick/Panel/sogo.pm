@@ -65,10 +65,10 @@ sub apply {
     $configdb->set_prop('sogod', 'EnableEMailAlarms', $q->param("enableEMailAlarms"));
     
     unless ( system ("/sbin/e-smith/signal-event", "sogo-modify") == 0 ){
-        return $self->error('ERROR_OCCURED', 'FIRST');;
+        return $self->error('ERROR_OCCURED', 'First');;
     }
 
-    return $self->success('SUCCESS','FIRST');
+    return $self->success('SUCCESS','First');
 }
 
 1;
