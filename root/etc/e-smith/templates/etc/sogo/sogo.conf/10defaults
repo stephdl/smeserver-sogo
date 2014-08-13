@@ -92,6 +92,6 @@ HERE
         WOPort = 127.0.0.1:{$sogod{'TCPPort'}};
         WOUseRelativeURLs = YES;
         
-        SOGoMemcachedHost = "/var/run/sogo/memcached.sock";
+        SOGoMemcachedHost = 127.0.0.1;
         SOGoCacheCleanupInterval = 1800;
 \}
