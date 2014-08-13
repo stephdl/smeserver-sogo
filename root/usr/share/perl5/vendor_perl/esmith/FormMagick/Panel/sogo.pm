@@ -64,11 +64,21 @@ sub apply {
     $configdb->set_prop('sogod', 'ActiveSync', $q->param("activeSync"));
     $configdb->set_prop('sogod', 'EnableEMailAlarms', $q->param("enableEMailAlarms"));
     
-    unless ( system ("/sbin/e-smith/signal-event", "sogo-modify") == 0 ){
-        return $self->error('ERROR_OCCURED', 'First');;
+    my $sogo_status = $configdb->get_prop('sogod','status');
+
+    if ($sogo_status eq 'disabled') {
+        unless ( system ('/etc/init.d/sogod stop >/dev/null 2>&1') == 0 ){
+            return $self->error('ERROR_OCCURED', 'First');
+        }
     }
 
+    elsif ($sogo_status eq 'enabled') {
+        unless ( system ("/sbin/e-smith/signal-event", "sogo-modify") == 0 ){
+            return $self->error('ERROR_OCCURED', 'First');
+        }
+    }
     return $self->success('SUCCESS','First');
+
 }
 
 1;
