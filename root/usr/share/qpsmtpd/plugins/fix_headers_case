@@ -1,0 +1,52 @@
+#!/usr/bin/perl -wT
+=head1 NAME
+
+fix_headers_case
+
+=head1 DESCRIPTION
+
+SOGo adds lower case headers, which some mail servers do not like.
+This plugin just rewrite them to have the first letter uppercase
+
+=head1 AUTHOR
+
+Daniel Berteaud <daniel@firewall-services.com>
+
+=head1 LICENSE
+
+GNU GPL (GNU General Public License)
+
+
+=cut
+
+
+sub register {
+  my ($self, $qp, %arg) = @_;
+  $self->register_hook("data_post", "fix_headers_case");
+}
+
+
+sub fix_headers_case {
+  my ($self, $transaction) = @_;
+  my $mailer = $self->get_header($transaction,'User-Agent') or return DECLINED;
+  $mailer =~ m/^SOGoMail/ or return DECLINED;
+  $self->log(LOGINFO, "SOGo mailer detected, going to fix headers case");
+  foreach my $header (qw/From To Cc Subject Message-ID Content-Type Date Content-Length Content-Transfer-Encoding/){
+    my $value = $self->get_header($transaction,$header) or next;
+    $self->set_header($transaction, $header, $value);
+  }
+  return DECLINED;
+}
+
+sub get_header {
+  my ($self, $transaction, $header) = @_;
+  my $ret  = $transaction->header->get($header) or return;
+  return $ret;
+}
+
+sub set_header {
+    my ($self, $transaction, $header, $value) = @_;
+    my $ret = $transaction->header->delete($header) or return;
+    $ret = $transaction->header->add($header, $value) or return;
+    return $ret;
+}
