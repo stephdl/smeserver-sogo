@@ -4,7 +4,7 @@
         SOGoProfileURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_user_profile";
                 OCSEMailAlarmsFolderURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_alarms_folder";
         
-        SOGoACLsSendEMailNotifications = {uc($sogod{'ACLsSendEMailNotifications'} || "no")};
+        SOGoACLsSendEMailNotifications = {uc($sogod{'ACLsSendEMailNotifications'} || "NO")};
         SOGoAppointmentSendEMailNotifications = YES;
         SOGoAppointmentSendEMailReceipts = YES;
         SOGoEnableEMailAlarms = {($sogod{'EnableEMailAlarms'} || "NO")};
@@ -31,8 +31,8 @@
         SOGoTimeZone = {$TimeZone};
         WOWorkersCount = {($sogod{'WOWorkersCount'} || "3")};
 
-        SOGoMailAuxiliaryUserAccountsEnabled = {uc($sogod{'MailAuxiliaryUserAccountsEnabled'} || "yes")};
-        SOGoEnablePublicAccess = {uc($sogod{'PublicAccess'} || "no")};
+        SOGoMailAuxiliaryUserAccountsEnabled = {uc($sogod{'MailAuxiliaryUserAccountsEnabled'} || "YES")};
+        SOGoEnablePublicAccess = {uc($sogod{'PublicAccess'} || "NO")};
 
         SOGoMailCustomFromEnabled = YES;
 
