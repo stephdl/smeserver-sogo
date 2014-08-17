@@ -12,7 +12,7 @@ URL:		http://www.smeserver.org
 Source0:	%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-
+Epoch: 9
 BuildRequires:	e-smith-devtools
 Requires:	smeserver-release >= 9
 Requires:	e-smith-ldap
@@ -23,7 +23,7 @@ Requires:	sogo-activesync
 Requires: 	sope49-gdl1-mysql
 Requires: 	sogo-ealarms-notify
 Requires: 	python-memcached
-
+Requires:       smeserver-dovecot-extras
 %description
 SME Server module for SOGo groupware.
 
@@ -86,6 +86,14 @@ fi
 
 
 %changelog
+* Sun Aug 17 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-3
+- a bit of clean and new  code inspired from ipasserelle-groupware. Thanks to daniel berteaud <daniel@firewall-services.com>
+- added sieve and acl support (come with smeserver-dovecot-extras)
+- added a panel in the server-manager with options
+- added active-sync support
+- added sogo notifications
+
+
 * Thu May 08 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-2
 - First release For SME Server 9 Thanks for all previous valorous developers
 - removed expand-template for bootstrap-console-save in createlink
