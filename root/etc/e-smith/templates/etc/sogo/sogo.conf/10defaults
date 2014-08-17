@@ -68,7 +68,7 @@ HERE
                 hostname = localhost;
                 id = users;
                 isAddressBook = YES;
-                port = {$ldap{'TCPPort'}};
+                port = {$sogod{'LdapTCPPort'} || '389'};
                 type = ldap;
             \},
             \{  
@@ -81,7 +81,7 @@ HERE
                 hostname = localhost;
                 id = groups;
                 isAddressBook = YES;
-                port = {$ldap{'TCPPort'}};
+                port = {$sogod{'LdapTCPPort'} || '389'};
                 type = ldap;
             \}
         );
