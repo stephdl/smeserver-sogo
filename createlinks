@@ -19,6 +19,8 @@ templates2events("/etc/sysconfig/sogo", qw( email-update sogo-modify bootstrap-c
 templates2events("/etc/rc.d/init.d/masq",qw( email-update sogo-modify));
 templates2events("/etc/cron.d/sogo",qw( email-update sogo-modify));
 templates2events("/etc/dovecot/master.users",qw( email-update sogo-modify));
+templates2events("/etc/dovecot/dovecot.conf",qw( sogo-modify));
+
 
 safe_symlink("sigusr1", "root/etc/e-smith/events/sogo-modify/services2adjust/httpd-e-smith");
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/sogod");
