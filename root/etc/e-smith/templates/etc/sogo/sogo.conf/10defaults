@@ -50,6 +50,7 @@
         SOGoVacationEnabled = YES;
         SOGoForwardEnabled = YES;
         SOGoSieveScriptsEnabled = YES;
+        NGImap4ConnectionStringSeparator = ".";
 HERE
     }
 }

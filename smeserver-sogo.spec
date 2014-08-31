@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -86,6 +86,10 @@ fi
 
 
 %changelog
+
+* Sun Aug 31 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-4
+- Added  . separator for imap, instead of / by default
+
 * Sun Aug 17 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-3
 - a bit of clean and new  code inspired from ipasserelle-groupware. Thanks to daniel berteaud <daniel@firewall-services.com>
 - added sieve and acl support (come with smeserver-dovecot-extras)
