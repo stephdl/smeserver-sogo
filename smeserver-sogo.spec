@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	4%{?dist}
+Release:	5%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -86,11 +86,13 @@ fi
 
 
 %changelog
+* Sun Sep 21 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-5.sme
+- SOGoMailMessageCheck has been replaced by SOGoRefreshViewCheck
 
-* Sun Aug 31 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-4
+* Sun Aug 31 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-4.sme
 - Added  . separator for imap, instead of / by default
 
-* Sun Aug 17 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-3
+* Sun Aug 17 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-3.sme
 - a bit of clean and new  code inspired from ipasserelle-groupware. Thanks to daniel berteaud <daniel@firewall-services.com>
 - added sieve and acl support (come with smeserver-dovecot-extras)
 - added a panel in the server-manager with options
