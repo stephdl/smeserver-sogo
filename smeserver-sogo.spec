@@ -16,12 +16,12 @@ Epoch: 9
 BuildRequires:	e-smith-devtools
 Requires:	smeserver-release >= 9
 Requires:	e-smith-ldap
-Requires:	sogo >= 2.2.0
-Requires:	sogo-tool
+Requires:	sogo <= 2.2.8
+Requires:	sogo-tool <= 2.2.8
 Requires:	memcached
-Requires:	sogo-activesync
+Requires:	sogo-activesync <= 2.2.8
 Requires: 	sope49-gdl1-mysql
-Requires: 	sogo-ealarms-notify
+Requires: 	sogo-ealarms-notify <= 2.2.8
 Requires: 	python-memcached
 Requires:       smeserver-dovecot-extras
 %description
