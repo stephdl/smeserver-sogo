@@ -28,6 +28,9 @@ Requires:       smeserver-dovecot-extras
 SME Server module for SOGo groupware.
 
 %prep
+##my bad to remove a bad folder if exists [1.3-6.sme]
+/bin/rm -rf /var/service/tinydns/root/data/ &> /dev/null
+
 %setup -q
 
 %build
