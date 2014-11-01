@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	5%{?dist}
+Release:	6%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Sat Nov 01 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-6.sme
+- removed a bad file 80srvSOGo in the template path of /var/service/tinydns/root/data
+
 * Sun Sep 21 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-5.sme
 - SOGoMailMessageCheck has been replaced by SOGoRefreshViewCheck
 
