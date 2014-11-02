@@ -11,6 +11,7 @@ templates2events("/var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql", qw(
 
 templates2events("/etc/e-smith/sql/init/31sogo_upgrade", qw(post-install post-upgrade));
 
+templates2events("/var/service/tinydns/root/data", qw( email-update sogo-modify));
 templates2events("/etc/httpd/conf/httpd.conf", qw( email-update sogo-modify));
 templates2events("/etc/sogo/sogo.conf", qw( email-update sogo-modify bootstrap-console-save));
 templates2events("/etc/sysconfig/memcached", qw( email-update sogo-modify bootstrap-console-save));
@@ -27,6 +28,7 @@ safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/sog
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/dovecot");
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/memcached");
 safe_symlink("adjust", "root/etc/e-smith/events/sogo-modify/services2adjust/masq");
+safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/tinydns");
 
 for my $event (qw(pre-backup))
 {
