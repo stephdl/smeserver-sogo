@@ -89,7 +89,7 @@ fi
 
 
 %changelog
-* Mon Dec 01 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-8.sme
+* Mon Dec 29 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-8.sme
 - Sogo must be an admin of dovecot for expire-autoreply [SME: 8753]
 - Thanks to  Mats Schuh <m.schuh@neckargeo.net>
 
