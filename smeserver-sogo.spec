@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	7%{?dist}
+Release:	8%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -89,6 +89,10 @@ fi
 
 
 %changelog
+* Mon Dec 01 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-8.sme
+- Sogo must be an admin of dovecot for expire-autoreply [SME: 8753]
+- Thanks to  Mats Schuh <m.schuh@neckargeo.net>
+
 * Sat Nov 01 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-7.sme
 - removed a bad file 80srvSOGo in the template path of /var/service/tinydns/root/data
 - added restart and event-template to tinydns with sogo-modify

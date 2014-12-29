@@ -1,0 +1,6 @@
+{
+##we want that sogo be an admin in dovecot for expire-autoreply
+    use esmith::ConfigDB;
+    my $DB = esmith::ConfigDB->open or die ("can not open db configuration : $!");
+    $DB->set_prop('dovecot','AdminIsMaster','enabled');
+}
