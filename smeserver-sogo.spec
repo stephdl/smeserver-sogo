@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	8%{?dist}
+Release:	9%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -89,6 +89,10 @@ fi
 
 
 %changelog
+* Tue Dec 30 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-9.sme
+- stop cron email confirmation to the sogo user account [SME: 8756]
+- code done by Mats Schuh <m.schuh@neckargeo.net>
+
 * Mon Dec 29 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-8.sme
 - Sogo must be an admin of dovecot for expire-autoreply [SME: 8753]
 - Thanks to  Mats Schuh <m.schuh@neckargeo.net>
