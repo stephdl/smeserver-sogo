@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	9%{?dist}
+Release:	10%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -89,6 +89,11 @@ fi
 
 
 %changelog
+* Tue Jan 6 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-10.sme
+- Added bindFields parameters to SOGoUserSources based on suggestion of Nicola Tiana in [SME: 7578]
+- According to SOGo installation guide, the value of bindFields has to be in an array for recent version
+- Thanks to  Mats Schuh <m.schuh@neckargeo.net>
+
 * Tue Dec 30 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-9.sme
 - stop cron email confirmation to the sogo user account [SME: 8756]
 - code done by Mats Schuh <m.schuh@neckargeo.net>
