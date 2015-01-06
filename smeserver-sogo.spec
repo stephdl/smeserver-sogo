@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.1
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -82,6 +82,11 @@ fi
 
 
 %changelog
+* Tue Jan 6 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-3.sme
+- Added bindFields parameters to SOGoUserSources based on suggestion of Nicola Tiana in [SME: 7578]
+- According to SOGo installation guide, the value of bindFields has to be in an array for recent version
+- Thanks to  Mats Schuh <m.schuh@neckargeo.net>
+
 * Thu Jun 25 2014 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.1-2
 - Released for sme8 since the smeserver Nethesis repository has closed.
 - Thanks to all previous developers. 
