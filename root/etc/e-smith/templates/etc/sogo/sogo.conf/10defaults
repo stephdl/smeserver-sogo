@@ -64,6 +64,7 @@ HERE
                 IDFieldName = uid;
                 UIDFieldName = uid;
                 baseDN = "ou=Users,{ esmith::util::ldapBase($DomainName); }";
+                bindFields = (uid);
                 canAuthenticate = YES;
                 displayName = "Users";
                 hostname = localhost;
@@ -77,6 +78,7 @@ HERE
                 IDFieldName = cn;
                 UIDFieldName = cn;
                 baseDN = "ou=Groups,{ esmith::util::ldapBase($DomainName); }";
+                bindFields = (cn);
                 canAuthenticate = YES;
                 displayName = "Groups";
                 hostname = localhost;
