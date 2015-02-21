@@ -34,5 +34,6 @@ for my $event (qw(pre-backup))
 {
     event_link("sogo-backup", $event, "80");
 }
+event_link("sogo-delete-user", "user-delete", "10");
 
 panel_link("sogo", "manager");

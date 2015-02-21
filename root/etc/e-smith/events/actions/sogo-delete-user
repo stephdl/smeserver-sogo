@@ -1,0 +1,16 @@
+#!/bin/bash
+
+EVENT=$1
+USER=$2
+
+if [ -z "$EVENT" ]; then
+    echo "event name is missing"
+    exit 1
+fi
+if [ -z "$USER" ]; then
+    echo "user account is missing"
+    exit 1
+fi
+
+su -l -s /bin/bash sogo -c "/usr/sbin/sogo-tool remove $USER"  > /dev/null 2>&1
+

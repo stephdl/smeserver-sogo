@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	11%{?dist}
+Release:	12%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -89,6 +89,9 @@ fi
 
 
 %changelog
+* Sat Feb 21 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-12.sme
+- Remove a sogo user when a SME Server user is removed
+
 * Sat Feb 21 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-11.sme
 - Fix the qpsmtpd fix_headers_case plugin
 
