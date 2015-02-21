@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	10%{?dist}
+Release:	11%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -89,6 +89,9 @@ fi
 
 
 %changelog
+* Sat Feb 21 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-11.sme
+- Fix the qpsmtpd fix_headers_case plugin
+
 * Tue Jan 6 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-10.sme
 - Added bindFields parameters to SOGoUserSources based on suggestion of Nicola Tiana in [SME: 7578]
 - According to SOGo installation guide, the value of bindFields has to be in an array for recent version
