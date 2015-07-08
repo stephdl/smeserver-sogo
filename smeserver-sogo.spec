@@ -3,7 +3,7 @@
 
 Name:		smeserver-sogo
 Version:	1.3
-Release:	12%{?dist}
+Release:	13%{?dist}
 Summary:	SME Server SOGo Groupware
 
 Group:		Networking/Daemons
@@ -89,6 +89,9 @@ fi
 
 
 %changelog
+* Wed Jul 8 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-13.sme
+- Upgrade to sogo 2.3.0, alteration table needed
+
 * Sat Feb 21 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-12.sme
 - Remove a sogo user when a SME Server user is removed
 

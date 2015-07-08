@@ -1,0 +1,24 @@
+{
+my $db = ${'sogod'}{'DbName'} || 'sogo';
+my $user = ${'sogod'}{'DbUser'} || 'sogo';
+my $pass = ${'sogod'}{'DbPassword'} || 'secret';
+
+$OUT .= <<"END";
+# Upgrade DB for 2.3.0
+for TABLE in \$(/usr/bin/mysql $db -s -e "select SUBSTRING_INDEX(c_quick_location, '/', -1) from sogo_folder_info where c_path3 = 'Calendar';"); do
+  /usr/bin/mysql $db -e "ALTER TABLE \$TABLE MODIFY c_partstates mediumtext;"
+  /usr/bin/mysql $db <<EOF
+DELIMITER ;;
+CREATE PROCEDURE upgrade_230()
+BEGIN
+    DECLARE CONTINUE HANDLER FOR 1060 BEGIN END;
+    ALTER TABLE \$TABLE ADD COLUMN c_description mediumtext;
+END;;
+CALL upgrade_230();;
+DROP PROCEDURE upgrade_230;
+EOF
+
+done
+
+END
+}
