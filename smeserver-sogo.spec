@@ -63,11 +63,15 @@ if [ $1 == 1 ]; then #first install
         /var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql
     /sbin/e-smith/expand-template \
         /etc/e-smith/sql/init/31sogo_upgrade
+    /sbin/e-smith/expand-template \
+       /etc/e-smith/sql/init/32sogo_upgrade_2.3
     /sbin/service mysql.init start
     /sbin/e-smith/signal-event sogo-modify
 elif [ $1 -gt 1 ]; then #update
     /sbin/e-smith/expand-template \
         /etc/e-smith/sql/init/31sogo_upgrade
+    /sbin/e-smith/expand-template \
+       /etc/e-smith/sql/init/32sogo_upgrade_2.3
     /sbin/service mysql.init start
     /etc/e-smith/events/actions/initialize-default-databases &> /dev/null || :
     /sbin/e-smith/signal-event sogo-modify || :
