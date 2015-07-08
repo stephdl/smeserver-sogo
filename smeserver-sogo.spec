@@ -1,11 +1,12 @@
 # $Id$
+%define name smeserver-sogo
+%define version 1.3
+%define release 14
 
-
-Name:		smeserver-sogo
-Version:	1.3
-Release:	12%{?dist}
+Name: %{name}
+Version: %{version}
+Release: %{release}%{?dist}
 Summary:	SME Server SOGo Groupware
-
 Group:		Networking/Daemons
 License:	GPLv3+
 URL:		http://www.smeserver.org
@@ -16,7 +17,7 @@ Epoch: 9
 BuildRequires:	e-smith-devtools
 Requires:	smeserver-release >= 9
 Requires:	e-smith-ldap
-Requires:	sogo >= 2.2.0
+Requires:	sogo >= 2.3.0
 Requires:	sogo-tool
 Requires:	memcached
 Requires:	sogo-activesync
@@ -63,11 +64,15 @@ if [ $1 == 1 ]; then #first install
         /var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql
     /sbin/e-smith/expand-template \
         /etc/e-smith/sql/init/31sogo_upgrade
+    /sbin/e-smith/expand-template \
+       /etc/e-smith/sql/init/32sogo_upgrade_2.3
     /sbin/service mysql.init start
     /sbin/e-smith/signal-event sogo-modify
 elif [ $1 -gt 1 ]; then #update
     /sbin/e-smith/expand-template \
         /etc/e-smith/sql/init/31sogo_upgrade
+    /sbin/e-smith/expand-template \
+       /etc/e-smith/sql/init/32sogo_upgrade_2.3
     /sbin/service mysql.init start
     /etc/e-smith/events/actions/initialize-default-databases &> /dev/null || :
     /sbin/e-smith/signal-event sogo-modify || :
@@ -89,6 +94,10 @@ fi
 
 
 %changelog
+* Wed Jul 8 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-14.sme
+- Upgrade to sogo 2.3.0, alteration table needed
+- thank to ian case <ianc@caseinfo.net>
+
 * Sat Feb 21 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-12.sme
 - Remove a sogo user when a SME Server user is removed
 
