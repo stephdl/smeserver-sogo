@@ -5,11 +5,12 @@ use esmith::Build::CreateLinks qw(:all);
 service_link_enhanced("memcached", "S55", "7");
 service_link_enhanced("sogod", "S85", "7");
 
-templates2events("/etc/e-smith/sql/init/30sogo_mysql_create_database", qw(post-install bootstrap-console-save));
-templates2events("/etc/e-smith/sql/init/31sogo_mysql_update_privileges", qw(post-install bootstrap-console-save));
-templates2events("/var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql", qw(post-install bootstrap-console-save));
+templates2events("/etc/e-smith/sql/init/30sogo_mysql_create_database", qw(sogo-modify post-install bootstrap-console-save));
+templates2events("/etc/e-smith/sql/init/31sogo_mysql_update_privileges", qw(sogo-modify post-install bootstrap-console-save));
+templates2events("/etc/e-smith/sql/init/31sogo_upgrade", qw(sogo-modify post-install post-upgrade));
+templates2events("/etc/e-smith/sql/init/32sogo_upgrade_2.3", qw(sogo-modify post-install post-upgrade));
 
-templates2events("/etc/e-smith/sql/init/31sogo_upgrade", qw(post-install post-upgrade));
+templates2events("/var/lib/sogo/smeserver/sogo_mysql_update_privileges.sql", qw(sogo-modify post-install bootstrap-console-save));
 
 templates2events("/var/service/tinydns/root/data", qw( email-update sogo-modify));
 templates2events("/etc/httpd/conf/httpd.conf", qw( email-update sogo-modify));
@@ -29,6 +30,8 @@ safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/dov
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/memcached");
 safe_symlink("adjust", "root/etc/e-smith/events/sogo-modify/services2adjust/masq");
 safe_symlink("restart", "root/etc/e-smith/events/sogo-modify/services2adjust/tinydns");
+safe_symlink("start", "root/etc/e-smith/events/sogo-modify/services2adjust/mysql.init");
+
 
 for my $event (qw(pre-backup))
 {

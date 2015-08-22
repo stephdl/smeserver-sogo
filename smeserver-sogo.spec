@@ -1,7 +1,7 @@
 # $Id$
 %define name smeserver-sogo
 %define version 1.3
-%define release 14
+%define release 15
 
 Name: %{name}
 Version: %{version}
@@ -94,6 +94,9 @@ fi
 
 
 %changelog
+* Sat Aug 22 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-15.sme
+- Added sogo-modify to mysql.init
+
 * Wed Jul 8 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-14.sme
 - Upgrade to sogo 2.3.0, alteration table needed
 - thank to ian case <ianc@caseinfo.net>
