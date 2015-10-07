@@ -1,7 +1,7 @@
 # $Id$
 %define name smeserver-sogo
 %define version 1.3
-%define release 16
+%define release 17
 
 Name: %{name}
 Version: %{version}
@@ -94,8 +94,9 @@ fi
 
 
 %changelog
-* Wed Oct 7 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-16.sme
+* Wed Oct 7 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-17.sme
 - /etc/e-smith/sql/init/32sogo_upgrade_2.3 is now executable
+- actions sogo_upgrade_2.3 is rewritten, thank to daniel Berteaud
 
 * Sat Aug 22 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-15.sme
 - Added sogo-modify to mysql.init
