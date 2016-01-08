@@ -1,7 +1,7 @@
 # $Id$
 %define name smeserver-sogo
 %define version 1.3
-%define release 17
+%define release 18
 
 Name: %{name}
 Version: %{version}
@@ -94,6 +94,9 @@ fi
 
 
 %changelog
+* Sat Jan 16 2016 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-18.sme
+- the template-end is created in the sogo.conf to allow the end user to add his settings
+
 * Wed Oct 7 2015 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-17.sme
 - /etc/e-smith/sql/init/32sogo_upgrade_2.3 is now executable
 - actions sogo_upgrade_2.3 is rewritten, thank to daniel Berteaud
