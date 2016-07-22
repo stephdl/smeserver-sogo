@@ -4,7 +4,7 @@
 # Make sure to set authname and authpassword with the credentials of a sieve admin
 {
   my $pwd = esmith::util::LdapPassword ();
-  $OUT.="0 0 * * *      sogo    /usr/sbin/sogo-tool expire-autoreply sogo:$pwd";
+  $OUT.="0 0 * * *      sogo    /usr/sbin/sogo-tool expire-autoreply sogo:$pwd >/dev/null 2>&1";
 }
 
 # Session cleanup - runs every minute

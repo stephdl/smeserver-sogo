@@ -1,7 +1,7 @@
 # $Id$
 %define name smeserver-sogo
 %define version 1.3
-%define release 18
+%define release 19
 
 Name: %{name}
 Version: %{version}
@@ -94,6 +94,9 @@ fi
 
 
 %changelog
+* Sun Jul 24 2016 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-19.sme
+- remove the email of cron for expire-autoreply
+
 * Sat Jan 16 2016 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-18.sme
 - the template-end is created in the sogo.conf to allow the end user to add his settings
 
