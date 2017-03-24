@@ -1,0 +1,2 @@
+        SOGoMemcachedHost = 127.0.0.1;
+        SOGoCacheCleanupInterval = 1800;

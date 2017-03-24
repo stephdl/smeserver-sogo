@@ -1,0 +1,6 @@
+        NGUseUTF8AsURLEncoding = YES;
+        WOMessageUseUTF8 = YES;
+        WOParsersUseUTF8 = YES;
+        WOPort = 127.0.0.1:{$sogod{'TCPPort'}};
+        WOUseRelativeURLs = YES;
+        SxVMemLimit = {$sogod{'SxVMemLimit'} || '384'};

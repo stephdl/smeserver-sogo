@@ -1,0 +1,5 @@
+        SOGoRefreshViewCheck = "every_10_minutes";
+        SOGoFirstDayOfWeek = "1";
+        SOGoFirstWeekOfYear = "First4DayWeek";
+        SOGoCalendarDefaultReminder = "-PT15M";
+

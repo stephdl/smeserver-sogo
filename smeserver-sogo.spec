@@ -1,7 +1,7 @@
 # $Id$
 %define name smeserver-sogo
-%define version 1.3
-%define release 19
+%define version 1.4
+%define release 1
 
 Name: %{name}
 Version: %{version}
@@ -94,6 +94,11 @@ fi
 
 
 %changelog
+* Fri Mar 24 2017 stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.4-1.sme
+- Add custom settings to avoid battery drain when using active sync
+- Thank to Michael McCarn <mmccarn-sme@mmsionline.us>
+- the sogo.conf template is rewritten by fragments
+
 * Sun Jul 24 2016 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3-19.sme
 - remove the email of cron for expire-autoreply
 

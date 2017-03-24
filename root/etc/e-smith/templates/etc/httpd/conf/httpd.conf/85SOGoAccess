@@ -20,7 +20,7 @@ RedirectMatch ^/.well-known/(caldav|carddav)$ /SOGo/dav/
 {
 if ($activeSync =~ m/^enabled|on|1|yes$/i){
     $OUT .=<<"HERE";
-ProxyPass /Microsoft-Server-ActiveSync http://127.0.0.1:$sogod{'TCPPort'}/SOGo/Microsoft-Server-ActiveSync retry=60 connectiontimeout=5 timeout=360
+ProxyPass /Microsoft-Server-ActiveSync http://127.0.0.1:$sogod{'TCPPort'}/SOGo/Microsoft-Server-ActiveSync retry=60 connectiontimeout=5 timeout=3600
 HERE
 }
 else {

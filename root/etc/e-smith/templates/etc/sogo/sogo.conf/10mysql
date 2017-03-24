@@ -1,0 +1,4 @@
+        OCSFolderInfoURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_folder_info";
+        OCSSessionsFolderURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_sessions_folder";
+        SOGoProfileURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_user_profile";
+        OCSEMailAlarmsFolderURL = "mysql://sogo:{$sogod{'DbPassword'}}@localhost/sogo/sogo_alarms_folder";

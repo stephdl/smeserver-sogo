@@ -1,0 +1,13 @@
+        SOGoMailSpoolPath = "/var/spool/sogo";
+        SOGoIMAPServer = "imap://localhost:{$imap{'TCPPort'} || '143'}";
+        SOGoMailDomain = {$DomainName};
+        SOGoMailingMechanism = smtp;
+        SOGoSMTPServer = localhost;
+        SOGoMailListViewColumnsOrder = (
+            Flagged, Attachment, Subject, From, Unread, Date, Size
+        );
+        SOGoTrashFolderName = {($sogod{'TrashFolder'} || "Trash")};
+        SOGoDraftsFolderName = {($sogod{'DraftsFolder'} || "Drafts")};
+        SOGoSentFolderName = {($sogod{'SentFolder'} || "Sent")};
+        SOGoJunkFolderName = "{$dovecot{SpamFolder} || "Junk"}";
+        SOGoMailCustomFromEnabled = YES;

@@ -1,0 +1,3 @@
+        SOGoSuperUsernames = (
+            {($sogod{'AdminUsers'} || 'admin')}
+        );

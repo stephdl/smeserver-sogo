@@ -1,0 +1,12 @@
+{   
+    if (($sieve{'status'} || 'disabled') eq 'enabled'){
+        my $sieveport = $sieve{'TCPPort'} || '4190';
+        $OUT .=<<"HERE";
+        SOGoSieveServer = "sieve://localhost:$sieveport";
+        SOGoVacationEnabled = YES;
+        SOGoForwardEnabled = YES;
+        SOGoSieveScriptsEnabled = YES;
+        NGImap4ConnectionStringSeparator = ".";
+HERE
+    }
+}

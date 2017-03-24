@@ -1,0 +1,31 @@
+        SOGoUserSources = (
+
+            \{
+                CNFieldName = cn;
+                IDFieldName = uid;
+                UIDFieldName = uid;
+                baseDN = "ou=Users,{ esmith::util::ldapBase($DomainName); }";
+                bindFields = (uid);
+                canAuthenticate = YES;
+                displayName = "Users";
+                hostname = localhost;
+                id = users;
+                isAddressBook = YES;
+                port = {$sogod{'LdapTCPPort'} || '389'};
+                type = ldap;
+            \},
+            \{  
+                CNFieldName = cn;
+                IDFieldName = cn;
+                UIDFieldName = cn;
+                baseDN = "ou=Groups,{ esmith::util::ldapBase($DomainName); }";
+                bindFields = (cn);
+                canAuthenticate = YES;
+                displayName = "Groups";
+                hostname = localhost;
+                id = groups;
+                isAddressBook = YES;
+                port = {$sogod{'LdapTCPPort'} || '389'};
+                type = ldap;
+            \}
+        );

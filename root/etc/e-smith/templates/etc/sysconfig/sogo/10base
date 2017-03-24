@@ -1,2 +1,2 @@
-PREFORK={($sogod{'WOWorkersCount'} || "3")}
+PREFORK={($sogod{'WOWorkersCount'} || "10")}
 USER=sogo

@@ -1,0 +1,2 @@
+        SOGoMailAuxiliaryUserAccountsEnabled = {uc($sogod{'MailAuxiliaryUserAccountsEnabled'} || "YES")};
+        SOGoEnablePublicAccess = {uc($sogod{'PublicAccess'} || "NO")};
