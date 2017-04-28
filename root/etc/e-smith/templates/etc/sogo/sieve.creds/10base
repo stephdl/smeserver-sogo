@@ -1,0 +1,4 @@
+{
+  my $pwd = esmith::util::LdapPassword ();
+  $OUT.="sogo:$pwd";
+}
