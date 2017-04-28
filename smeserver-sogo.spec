@@ -1,7 +1,7 @@
 # $Id$
 %define name smeserver-sogo
-%define version 1.4
-%define release 2
+%define version 1.5
+%define release 1
 
 Name: %{name}
 Version: %{version}
@@ -94,6 +94,10 @@ fi
 
 
 %changelog
+* Wed Apr 28 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> - 1.5-1.sme
+- Increase maximum IMAP command line length
+- Adjusted sogo cron.d, sieve credentials are in /etc/sogo/sieve.creds
+
 * Fri Mar 24 2017 stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.4-2.sme
 - Add custom settings to avoid battery drain when using active sync [SME: 10168]
 - Thank to Michael McCarn <mmccarn-sme@mmsionline.us>
